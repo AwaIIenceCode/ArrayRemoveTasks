@@ -62,6 +62,7 @@ class MyClass
     static void RemoveAtIndex(ref int[] mainArray)
     {
         
+        
         ShowArray(mainArray);
     }
 
