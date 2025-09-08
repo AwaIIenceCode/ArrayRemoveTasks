@@ -47,6 +47,11 @@ class MyClass
     /// </summary>
     static void RemoveFromStart(ref int[] mainArray)
     {
+        int[] tempArray = new int [mainArray.Length - 1];
+
+        Array.Copy(mainArray, 1, tempArray, 0, mainArray.Length - 1);
+        
+        mainArray = tempArray;
         
         ShowArray(mainArray);
     }
