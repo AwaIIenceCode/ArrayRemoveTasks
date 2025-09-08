@@ -33,6 +33,8 @@ class MyClass
     /// </summary>
     static void RemoveFromEnd(ref int[] mainArray)
     {
+        if (mainArray.Length <= 0) { Console.WriteLine("Nothing to remove!"); return; }
+        
         int[] tempArray = new int [mainArray.Length - 1];
 
         Array.Copy(mainArray,0, tempArray, 0, mainArray.Length - 1);
@@ -47,6 +49,8 @@ class MyClass
     /// </summary>
     static void RemoveFromStart(ref int[] mainArray)
     {
+        if (mainArray.Length <= 1) { Console.WriteLine("Too short to remove from start!"); return; }
+        
         int[] tempArray = new int [mainArray.Length - 1];
 
         Array.Copy(mainArray, 1, tempArray, 0, mainArray.Length - 1);
@@ -69,7 +73,7 @@ class MyClass
         int[] tempArray = new int[mainArray.Length - 1];
         
         Array.Copy(mainArray, 0, tempArray, 0, userIndex);
-        Array.Copy(mainArray, userIndex, tempArray, userIndex - 1, mainArray.Length - userIndex);
+        Array.Copy(mainArray, userIndex + 1, tempArray, userIndex, mainArray.Length - userIndex - 1);
 
         mainArray = tempArray;
         
