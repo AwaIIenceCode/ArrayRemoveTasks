@@ -61,7 +61,17 @@ class MyClass
     /// </summary>
     static void RemoveAtIndex(ref int[] mainArray)
     {
+        Console.Write("Enter the index to remove an element from the array -> ");
+        if (!int.TryParse(Console.ReadLine(), out int userIndex) || userIndex >= mainArray.Length || userIndex <= 0) { Console.WriteLine("Must be in array range!"); return; }
+
+        if (mainArray.Length == 0) { Console.WriteLine("Your array is empty!"); return; }
         
+        int[] tempArray = new int[mainArray.Length - 1];
+        
+        Array.Copy(mainArray, 0, tempArray, 0, userIndex);
+        Array.Copy(mainArray, userIndex, tempArray, userIndex - 1, mainArray.Length - userIndex);
+
+        mainArray = tempArray;
         
         ShowArray(mainArray);
     }
